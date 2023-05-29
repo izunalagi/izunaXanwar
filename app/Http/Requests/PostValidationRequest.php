@@ -24,8 +24,8 @@ class PostValidationRequest extends FormRequest
     public function rules()
     {
         return [
-            'photo' => 'required|mimes:png,jpg',
-            'tittle' => 'required',
+            'photo' => 'required',
+            'title' => 'required',
             'description' => 'required',
         ];
     }
@@ -33,7 +33,7 @@ class PostValidationRequest extends FormRequest
     {
         return [
             'photo.required' => 'Foto harus diisi',
-            'photo.mimes' => 'Foto harus berupa format png, jpg',
+            // 'photo.mimes' => 'Foto harus berupa format png, jpg',
             'tittle.required' => 'tittle harus diisi',
             'description.required' => 'deskripsi harus diisi',
         ];

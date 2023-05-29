@@ -10,7 +10,7 @@
                             <div class="mb-3">
                                 <label for="title" class="form-label">Judul</label>
                                 <input type="text" name="title" class="form-control">
-                                @error('tittle')
+                                @error('title')
                                     <span class="me-2 text-danger fw-bold">{{ $message }}</span>
                                 @enderror
                             </div>

@@ -30,7 +30,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        
+
         return view('post.create');
     }
 
@@ -42,14 +42,6 @@ class PostController extends Controller
      */
     public function store(PostValidationRequest $request)
     {
-
-        try {
-            User::create(["tittle"=> $request->string("title")]);
-
-        }catch (Exception $exception){
-            Log::error($exception->getMessage());;
-        }
-
         $file = $request->file('photo');
         $filename = time() . '.' .
             $file->getClientOriginalExtension();
@@ -57,12 +49,15 @@ class PostController extends Controller
         $photo_post = $request->file('photo')->storeAs('public/post', $filename);
         $photo_post = str_replace('public/', '', $photo_post);
 
-        $post = Post::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'photo' => $photo_post
-        ]);
-
+        try {
+            $post = Post::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'photo' => $photo_post,
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
         return redirect()->route('admin.post.index');
     }
 
