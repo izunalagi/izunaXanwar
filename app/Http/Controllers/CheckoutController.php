@@ -38,6 +38,7 @@ class CheckoutController extends Controller
         $create = Checkout::create([
             'product_id' => $request->product_id,
             'total' => $total_price,
+            'total_before' => $total_price,
             'qty' => $request->qty,
             'transaction_id' => $request->transaction_id,
         ]);
@@ -76,14 +77,14 @@ class CheckoutController extends Controller
     public function diskon($id, Request $request)
     {
         if ($request->voucher_id != null) {
-            
-            
+
+
             $checkouts = Checkout::find($id);
             $vouchers = Voucher::find($request->voucher_id);
-            
+
             // $test = $vouchers->stocks - $checkouts->qty;
             // dd($test);
-            
+
             //CREATE DATA PRICE
             $price_before = $checkouts->total;
             $price_discount = $vouchers->diskon * $checkouts->qty;
@@ -92,8 +93,9 @@ class CheckoutController extends Controller
             //SAVE TRANSACTION DETAIL AFTER DISCOUNT
             $checkouts->voucher_id = $request->voucher_id;
             $checkouts->total = $price_after;
+            $checkouts->total_discount = $price_discount;
             $checkouts->save();
-            
+
             // $totals = $checkouts->update([
             //     'voucher_id' => $request->voucher_id,
             //     'total' => $price_after,

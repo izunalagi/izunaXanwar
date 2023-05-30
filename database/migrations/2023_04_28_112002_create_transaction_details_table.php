@@ -21,6 +21,8 @@ return new class extends Migration
             $table->foreign('voucher_id')->references('id')->on('vouchers');
             $table->integer('qty');
             $table->string('total');
+            $table->string('total_discount')->nullable();
+            $table->string('total_before');
             $table->date('date');
             $table->timestamps();
         });

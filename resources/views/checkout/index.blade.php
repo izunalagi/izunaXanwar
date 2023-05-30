@@ -121,6 +121,8 @@
                                     <th>Product</th>
                                     <th>qty</th>
                                     <th>total price</th>
+                                    <th>total discount</th>
+                                    <th>price before</th>
                                     <th>Diskon</th>
                                     <th>Action</th>
                                 </tr>
@@ -132,6 +134,13 @@
                                         <td>{{ $item->fkProduct->name }}</td>
                                         <td>{{ $item->qty }}</td>
                                         <td>Rp.{{ number_format($item->total) }}</td>
+                                        @if ($item->total_discount != '')
+                                            <td>Rp.{{ number_format($item->total_discount) }}</td>
+                                            <td>Rp.{{ number_format($item->total_before) }}</td>
+                                        @else
+                                            <td> - </td>
+                                            <td> - </td>
+                                        @endif
                                         @if ($item->voucher_id != null)
                                             <td>{{ $item->fkVoucher->name }} - Rp.{{ $item->fkVoucher->diskon }}</td>
                                         @else
