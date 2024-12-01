@@ -4,88 +4,123 @@
     Produk
 @endsection
 
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('alert'))
+        <script>
+            Swal.fire({
+                icon: '{{ session('alert')['type'] }}',
+                title: '{{ session('alert')['message'] }}',
+                showConfirmButton: false,
+                timer: 2000
+            });
+        </script>
+    @endif
+@endsection
 
 @section('isi')
     <div class="container">
-        <div class="row ">
-            <div class="col">
+        <div class="row">
+            <div class="col-12">
                 <div class="card">
-                    <div class="card-header">{{ __('Data') }}</div>
-                    <div class="card-body">
+                    <!-- Card Header -->
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>{{ __('Data Produk') }}</span>
                         <a href="{{ route('admin.product.create') }}">
-                            <button type="button" class="btn btn-primary mb-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-plus-square" viewBox="0 0 16 16">
-                                    <path
-                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                                    <path
-                                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                </svg>
-                                Tambah</button>
+                            <button type="button" class="btn btn-primary">
+                                <i class="bi bi-plus-square"></i> Tambah
+                            </button>
                         </a>
+                    </div>
+
+
+
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <!-- Search Form -->
+                        <form method="GET" action="{{ route('admin.product.index') }}" class="mb-3">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="text" name="search" class="form-control" placeholder="Cari produk..."
+                                        value="{{ request('search') }}">
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="per_page" class="form-control" onchange="this.form.submit()">
+                                        <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5</option>
+                                        <option value="10" {{ request('per_page') == 10 ? 'selected' : '' }}>10</option>
+                                        <option value="25" {{ request('per_page') == 25 ? 'selected' : '' }}>25</option>
+                                        <option value="50" {{ request('per_page') == 50 ? 'selected' : '' }}>50</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary">Cari</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Table -->
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>stocks</th>
-                                    <th>Category</th>
-                                    <th>Photo</th>
-                                    <th>Action</th>
+                                    <th>Nama</th>
+                                    <th>Harga</th>
+                                    <th>Stok</th>
+                                    <th>Kategori</th>
+                                    <th>Foto</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
-
                             <tbody>
-                                @foreach ($products as $item)
+                                @forelse ($products as $item)
                                     <tr>
-                                        <th>{{ $loop->iteration }}</th>
+                                        <td>{{ $loop->iteration + ($products->currentPage() - 1) * $products->perPage() }}
+                                        </td>
                                         <td>{{ $item->name }}</td>
                                         <td>Rp.{{ number_format($item->price) }}</td>
                                         <td>{{ $item->stocks }}</td>
                                         <td>{{ $item->fkCategory->name }}</td>
-                                        {{-- <td>{{ $item->category_id --}}
-
                                         <td>
-                                            @if ($item->photo != null)
-                                                <div style="width:100px">
-                                                    <img src="{{ asset('storage/' . $item->photo) }}" class="img-fluid"
-                                                        alt="...">
-
-                                                </div>
+                                            @if ($item->photo)
+                                                <img src="{{ asset('storage/' . $item->photo) }}" class="img-fluid"
+                                                    alt="Foto" style="width: 100px;">
                                             @else
-                                                <p class="text-info">tidak ada foto</p>
+                                                <p class="text-info">Tidak ada foto</p>
                                             @endif
                                         </td>
                                         <td>
-                                            <form action="{{ route('admin.product.destroy', $item->id) }}" method="POST">
-                                                <a type="button" class="btn btn-warning"
-                                                    href="{{ route('admin.product.edit', $item->id) }}">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                                        <path fill-rule="evenodd"
-                                                            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                                    </svg>
-                                                    Edit</a>
-                                                @method('delete')
+                                            <a href="{{ route('admin.product.edit', $item->id) }}"
+                                                class="btn btn-warning btn-sm">Edit</a>
+                                            <form action="{{ route('admin.product.destroy', $item->id) }}" method="POST"
+                                                style="display:inline;">
+                                                @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
-                                                        <path
-                                                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
-                                                    </svg>
-                                                    Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                                             </form>
                                         </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <tr>
+                                        <td colspan="7" class="text-center">Tidak ada data ditemukan.</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
+
+                        <!-- Pagination -->
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div>
+                                Menampilkan {{ $products->firstItem() }} - {{ $products->lastItem() }} dari
+                                {{ $products->total() }} data
+                            </div>
+                            <div>
+                                <nav>
+                                    <ul class="pagination pagination-sm">
+                                        {{ $products->appends(request()->except('page'))->links('pagination::bootstrap-4') }}
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

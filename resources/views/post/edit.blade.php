@@ -1,4 +1,7 @@
 @extends('dashboard.admin')
+@section('judul')
+    Edit Promo
+@endsection
 @section('isi')
     <div class="container">
         <div class="row justify-content-center">
@@ -15,8 +18,8 @@
                                     value="{{ $post->title }}">
                             </div>
                             <div class="mb-3">
-                                <label for="price" class="form-label">Deskripsi</label>
-                                <textarea class="form-control" name="description" id="description" value="{{ $post->description }}"></textarea>
+                                <label for="description" class="form-label">Deskripsi</label>
+                                <textarea class="form-control" name="description" id="description" value="  ">{{ $post->description }}</textarea>
                             </div>
                             <div class="form-floating mb-3">
                                 <label for="photo">Upload Photo :</label>

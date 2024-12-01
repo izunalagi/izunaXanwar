@@ -1,5 +1,7 @@
 @extends('dashboard.admin')
-
+@section('judul')
+    Create User Role
+@endsection
 @section('isi')
     <div class="container">
         <div class="row justifiy-content-center">

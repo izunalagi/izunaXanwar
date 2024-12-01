@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">
                         <center>
-                            <h1>HOME VAPE JEMBER</h1>
+                            <h1>Ca' Amang's Cafe</h1>
                             <p>Jl.Letjen Suprapto Gang XII No.4</p>
                             <p>+6285704623338</p>
                         </center>
@@ -17,13 +17,13 @@
                     <div class="card-body table-responsive">
                         <div class="row">
                             <div class="col-sm-12 col-md-6">
-                                <h4>Billing Information</h4>
-                                <p class="text-md-start"><b>Buyer</b> : {{ $details->fkBuyer->name }}</p>
-                                <p class="text-md-start"><b>Address</b> : {{ $details->fkBuyer->address }}</p>
-                                <p class="text-md-start"><b>Date</b> : {{ $details->date }}</p>
+                                <h4>Informasi Pelanggan</h4>
+                                <p class="text-md-start"><b>Pelanggan</b> : {{ $details->fkBuyer->name }}</p>
+                                <p class="text-md-start"><b>Alamat</b> : {{ $details->fkBuyer->address }}</p>
+                                <p class="text-md-start"><b>Tanggal</b> : {{ $details->date }}</p>
                             </div>
                             <div class="col-md-6">
-                                <h4>Price Information</h4>
+                                <h4>Informasi Harga</h4>
                                 @php
                                     $total_price = 0;
                                     $discount_price = 0;
@@ -41,11 +41,12 @@
 
                                 <p class="text-md-start"><b>Total:</b>Rp.{{ number_format($total_price) }}</p>
                                 @if ($discount_price != 0)
-                                    <p class="text-md-start"><b>Total discount:</b>Rp.{{ number_format($discount_price) }}</p>
-                                    <p class="text-md-start"><b>Original price:</b>Rp.{{ number_format($before_price) }}</p>
+                                    <p class="text-md-start"><b>Total Discount:</b>Rp.{{ number_format($discount_price) }}
+                                    </p>
+                                    <p class="text-md-start"><b>Harga Asli:</b>Rp.{{ number_format($before_price) }}</p>
                                 @else
-                                    <p class="text-md-start"><b>Total discount:</b>Tidak ada</p>
-                                    <p class="text-md-start"><b>Original price:</b>Rp.{{ number_format($before_price) }}</p>
+                                    <p class="text-md-start"><b>Total Discount:</b>Tidak ada</p>
+                                    <p class="text-md-start"><b>Harga Asli:</b>Rp.{{ number_format($before_price) }}</p>
                                 @endif
                             </div>
                         </div>
@@ -54,10 +55,10 @@
                                 <thead class="thead-dark">
                                     <tr>
                                         <th>No</th>
-                                        <th>Product</th>
-                                        <th>qty</th>
-                                        <th>total price</th>
-                                        <th>Diskon</th>
+                                        <th>Produk</th>
+                                        <th>Qty</th>
+                                        <th>Total Harga</th>
+                                        <th>Discount</th>
                                     </tr>
                                 </thead>
                                 <tbody>

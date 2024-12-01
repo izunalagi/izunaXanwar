@@ -1,5 +1,5 @@
 <section class="trending-podcast-section section-padding">
-    <div class="container">
+    {{-- <div class="container">
         <div class="row">
 
             <div class="col-lg-12 col-12">
@@ -61,9 +61,9 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @endforeach --}}
 
-            {{-- <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+    {{-- <div class="col-lg-4 col-12 mb-4 mb-lg-0">
                 <div class="custom-block custom-block-full">
                     <div class="custom-block-image-wrap">
                         <a href="detail-page.html">
@@ -177,6 +177,6 @@
                 </div>
             </div> --}}
 
-        </div>
+    </div>
     </div>
 </section>

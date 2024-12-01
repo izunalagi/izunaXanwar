@@ -1,5 +1,7 @@
 @extends('dashboard.admin')
-
+@section('judul')
+    Edit User Role
+@endsection
 
 @section('isi')
     <div class="container">

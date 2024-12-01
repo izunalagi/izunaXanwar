@@ -1,4 +1,7 @@
 @extends('dashboard.admin')
+@section('judul')
+    Promo
+@endsection
 @section('isi')
     <div class="container">
         <div class="row justify-content-center">
@@ -31,7 +34,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             @if ($item->photo != null)
-                                                <div style="width:200px">
+                                                <div style="width:100px">
                                                     <img src="{{ asset('storage/' . $item->photo) }}" class="img-fluid"
                                                         alt="...">
 

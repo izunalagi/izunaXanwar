@@ -1,4 +1,20 @@
 @extends('dashboard.admin')
+@section('judul')
+    Create produk
+@endsection
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('alert'))
+        <script>
+            Swal.fire({
+                icon: '{{ session('alert')['type'] }}', // e.g., success, error
+                title: '{{ session('alert')['message'] }}', // Pesan dinamis dari controller
+                showConfirmButton: false,
+                timer: 2000
+            });
+        </script>
+    @endif
+@endsection
 
 @section('isi')
     <div class="container">

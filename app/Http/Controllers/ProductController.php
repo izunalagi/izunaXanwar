@@ -12,7 +12,15 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $products = Product::all();
+        $search = $request->input('search');
+        $perPage = $request->input('per_page', 10); // Default per page 10
+
+        // Gunakan paginate() untuk mendapatkan objek paginasi, bukan get()
+        $products = Product::where('name', 'LIKE', "%$search%")
+            ->orWhereHas('fkCategory', function ($query) use ($search) {
+                $query->where('name', 'LIKE', "%$search%");
+            })
+            ->paginate($perPage); // Mendapatkan hasil dengan pagination
         return view('product.index', compact('products'));
     }
 
@@ -22,12 +30,10 @@ class ProductController extends Controller
         return view('product.create', compact('categories'));
     }
 
-
     public function store(ProductValidationRequest $request)
     {
         $file = $request->file('photo');
-        $filename = time() . '.' .
-            $file->getClientOriginalExtension();
+        $filename = time() . '.' . $file->getClientOriginalExtension();
 
         $photo_path = $request->file('photo')->storeAs('public/products', $filename);
         $photo_path = str_replace('public/', '', $photo_path);
@@ -37,10 +43,15 @@ class ProductController extends Controller
             'price' => $request->price,
             'stocks' => $request->stocks,
             'category_id' => $request->category_id,
-            'photo' => $photo_path
+            'photo' => $photo_path,
         ]);
 
-        return redirect()->route('admin.product.index')->with('success', 'Data Berhasil Diubah');
+        return redirect()
+            ->route('admin.product.index')
+            ->with('alert', [
+                'type' => 'success',
+                'message' => 'Produk berhasil ditambahkan!',
+            ]);
     }
 
     public function edit($id)
@@ -52,16 +63,13 @@ class ProductController extends Controller
 
     public function update($id, Request $request)
     {
-
         $file = $request->file('photo');
         if ($file != null) {
-            $filename = time() . '.' .
-                $file->getClientOriginalExtension();
+            $filename = time() . '.' . $file->getClientOriginalExtension();
 
             $photo_path = $request->file('photo')->storeAs('public/products', $filename);
             $photo_path = str_replace('public/', '', $photo_path);
         }
-
 
         $ganti = Product::find($id);
         $ganti->name = $request->name;
@@ -87,7 +95,4 @@ class ProductController extends Controller
         $ganti->delete();
         return redirect()->route('admin.product.index')->with('success', 'Data Berhasil Dihapus');
     }
-
-   
-
 }

@@ -1,5 +1,7 @@
 @extends('dashboard.admin')
-
+@section('judul')
+    Transaction
+@endsection
 
 @section('isi')
     <div class="container">

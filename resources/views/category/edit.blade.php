@@ -1,6 +1,8 @@
 @extends('dashboard.admin')
 
-
+@section('judul')
+    Edit Category
+@endsection
 @section('isi')
     <div class="container">
         <div class="row justify-content-center">

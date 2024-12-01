@@ -1,5 +1,7 @@
 @extends('dashboard.admin')
-
+@section('judul')
+    Edit Produk Detail
+@endsection
 
 @section('isi')
     <div class="container">

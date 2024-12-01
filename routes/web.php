@@ -24,15 +24,18 @@ use App\Models\Transaction;
 |
 */
 
-Route::get('/', function () {
+// Route::get('/', function () {
+//     return view('layouts.frontend');
+// });
+//catalouge
+Route::get('/', [FrontendController::class, 'index'])->name('catalouge.index');
+Route::get('/detail/{id}', [FrontendController::class, 'detail'])->name('catalouge.detail');
+
+Route::get('/login', function () {
     return view('autentikasi.login');
 });
 
 Route::middleware(EnsureAuthCustomer::class)->group(function () {
-
-
-
-
     // buyer
     Route::get('/home/buyer', [BuyerController::class, 'index'])->name('buyer.index');
     Route::get('/buyer/create', [BuyerController::class, 'create'])->name('buyer.create');
@@ -69,20 +72,16 @@ Route::middleware(EnsureAuthCustomer::class)->group(function () {
 
     // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    //catalouge
-    Route::get('/catalouge', [FrontendController::class, 'index'])->name('catalouge.index');
-    Route::get('/catalouge/detail/{id}', [FrontendController::class, 'detail'])->name('catalouge.detail');
-   
     //productdetail
     Route::get('/home/product/detail', [ProductDetail::class, 'index'])->name('productdetail.index');
 
     //voucher
-     Route::get('/dashboard/voucher', [VoucherController::class, 'index'])->name('voucher.index');
-     Route::get('/voucher/create', [VoucherController::class, 'create'])->name('voucher.create');
-     Route::post('/voucher/store', [VoucherController::class, 'store'])->name('voucher.store');
-     Route::get('/voucher/{id}/edit', [VoucherController::class, 'edit'])->name('voucher.edit');
-     Route::put('/voucher/{id}', [VoucherController::class, 'update'])->name('voucher.update');
-     Route::delete('/voucher/{id}', [VoucherController::class, 'destroy'])->name('voucher.destroy');
+    Route::get('/dashboard/voucher', [VoucherController::class, 'index'])->name('voucher.index');
+    Route::get('/voucher/create', [VoucherController::class, 'create'])->name('voucher.create');
+    Route::post('/voucher/store', [VoucherController::class, 'store'])->name('voucher.store');
+    Route::get('/voucher/{id}/edit', [VoucherController::class, 'edit'])->name('voucher.edit');
+    Route::put('/voucher/{id}', [VoucherController::class, 'update'])->name('voucher.update');
+    Route::delete('/voucher/{id}', [VoucherController::class, 'destroy'])->name('voucher.destroy');
 });
 
 Auth::routes();

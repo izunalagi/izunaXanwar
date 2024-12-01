@@ -10,7 +10,7 @@
     @else
         <title>Dashboard Admin</title>
     @endif
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -188,7 +188,8 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('/') }}dist/img/1.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ asset('/') }}dist/img/1.jpg" class="img-circle elevation-2"
+                            alt="User Image">
                     </div>
                     <div class="info" style="color:white">
                         {{ Auth::user()->name }}
@@ -236,6 +237,7 @@
 
                 <!-- Default box -->
                 @yield('isi')
+                @yield('scripts')
                 <!-- /.card -->
 
             </section>

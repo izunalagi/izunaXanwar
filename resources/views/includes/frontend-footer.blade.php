@@ -24,7 +24,7 @@
 
                 <p>
                     <strong class="d-inline me-2">Email:</strong>
-                    <a href="#">kasirq@gmail.com</a>
+                    <a href="#">amang@gmail.com</a>
                 </p>
             </div>
 
@@ -69,7 +69,7 @@
 
             <div class="col-lg-2 col-md-3 col-12">
                 <a class="navbar-brand" href="index.html">
-                    <img src="{{ asset('frontend/images/logo-nav.png') }}" class="logo-image img-fluid"
+                    <img src="{{ asset('frontend/images/nang.png') }}" class="logo-image img-fluid"
                         alt="templatemo pod talk">
                 </a>
             </div>
@@ -95,10 +95,10 @@
             </div>
 
             <div class="col-lg-3 col-12">
-                <p class="copyright-text mb-0">Copyright © 2036 Talk Pod Company
+                <p class="copyright-text mb-0">Copyright © 2024 Ca' Amang
                     <br><br>
-                    Design: <a rel="nofollow" href="https://templatemo.com/page/1" target="_parent">TemplateMo</a>
-                </p> Distribution: <a rel="nofollow" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    Design: <a rel="nofollow" href="https://templatemo.com/page/1" target="_parent">Sistem Kasir</a>
+                </p> Distribution: <a rel="nofollow" href="https://themewagon.com" target="_blank">Semi Online</a>
             </div>
         </div>
     </div>

@@ -1,6 +1,8 @@
 @extends('dashboard.admin')
 
-
+@section('judul')
+    Checkout
+@endsection
 @section('isi')
     <div class="container">
         <div class="row">

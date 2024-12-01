@@ -1,8 +1,10 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand me-lg-5 me-0" href="index.html">
-            <img src="{{ asset('frontend/images/logo-nav.png') }}" class="logo-image img-fluid" alt="templatemo pod talk">
+            <img src="{{ asset('frontend/images/nang.png') }}" class="logo-image img-fluid custom-logo"
+                alt="templatemo pod talk">
         </a>
+
 
         <form action="#" method="get" class="custom-form search-form flex-fill me-3" role="search">
             <div class="input-group input-group-lg">
@@ -30,16 +32,17 @@
                     <a class="nav-link" href="about.html">About</a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+                <li class="nav-item">
+                    {{-- <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Pages</a> --}}
+                    <a class="nav-link" href="about.html">Pages</a>
 
-                    <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                        {{-- <li><a class="dropdown-item" href="listing-page.html">Listing Page</a></li> --}}
+                    {{-- <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                        <li><a class="dropdown-item" href="listing-page.html">Listing Page</a></li>
 
-                        {{-- <li><a class="dropdown-item" href="detail-page.html">Detail Page</a></li> --}}
+                        <li><a class="dropdown-item" href="detail-page.html">Detail Page</a></li>
 
-                        <li><a class="dropdown-item" href="{{ route('admin.dashboard.admin') }}">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.dashboard.admin') }}">dashboard</a></li>
                         <li><a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">Logout</a>
@@ -47,14 +50,14 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                    </ul>
+                    </ul> --}}
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
             </ul>
-            @if (Route::has('login'))
+            {{-- @if (Route::has('login'))
                 <div class="ms-4">
                     @auth
                         <a href="#section_3" class="btn custom-btn custom-border-btn smoothscroll">Get started</a>
@@ -67,7 +70,7 @@
                     @endauth
                 </div>
 
-            @endif
+            @endif --}}
         </div>
     </div>
 </nav>

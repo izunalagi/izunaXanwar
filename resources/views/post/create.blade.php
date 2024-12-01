@@ -1,4 +1,7 @@
 @extends('dashboard.admin')
+@section('judul')
+    Create Promo
+@endsection
 @section('isi')
     <div class="container">
         <div class="row justify-content-center">
