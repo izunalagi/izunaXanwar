@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-lg-12 col-12">
                 <div class="text-center mb-5 pb-2">
-                    <h1 class="text-white">Catalouge</h1>
-                    <p class="text-white">Ca' Amang's Cafe</p>
+                    <h1 class="text-white" style="font-family: 'geneva';">Katalog Produk</h1>
+                    <p class="text-white" style="font-family:  ; font-size:30px">Ca' Amang's Cafe</p>
                 </div>
 
                 <div class="owl-carousel owl-theme">

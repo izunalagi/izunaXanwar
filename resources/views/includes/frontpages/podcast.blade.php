@@ -4,7 +4,7 @@
 
             <div class="col-lg-12 col-12">
                 <div class="section-title-wrap mb-5">
-                    <h4 class="section-title">Promo</h4>
+                    <h4 class="section-title" style="font-family: geneva">Promo</h4>
                 </div>
             </div>
             @foreach ($posts->take(2) as $page)
@@ -33,11 +33,12 @@
                                     50 Minutes ago
                                 </small>
 
-                                <small>New<span class="badge">Promo!!</span></small>
+                                <small><span class="badge" style="font-family: Helvetica">New!!</span></small>
                             </div>
 
                             <h5 class="mb-2">
-                                <a href="detail-page.html">
+                                <a href="detail-page.html"
+                                    style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
                                     {{ $page->title }}
                                 </a>
                             </h5>
