@@ -22,9 +22,10 @@
                                     </svg>
                                     Tambah</button>
                             </a>
-
+                            {{-- wkwkwkwwk --}}
                             {{-- <a href="{{ route('home') }}">
                                 <button type="button" class="btn btn-primary ">kembali</button>
+
                             </a> --}}
                         </div>
                         <table class="table table-bordered">
