@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10 col-12">
                 <div class="section-title-wrap mb-5">
-                    <h4 class="section-title text-center">Contact Us</h4>
+                    <h4 class="section-title text-center" style="font-family: 'geneva';">Contact Us</h4>
                     <p class="text-center">
                         Reach out to us for inquiries, reservations, or just to say hello! We'd love to hear from you.
                     </p>

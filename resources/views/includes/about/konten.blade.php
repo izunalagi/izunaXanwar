@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-12">
-                <div class="section-title-wrap mb-5">
-                    <h4 class="section-title">About Us</h4>
+                <div class="section-title-wrap mb-5" s>
+                    <h4 class="section-title" style="font-family: geneva">About Us</h4>
                 </div>
 
                 <div class="row">

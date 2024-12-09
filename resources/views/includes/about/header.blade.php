@@ -4,7 +4,7 @@
 
             <div class="col-lg-12 col-12 text-center">
 
-                <h2 class="mb-0">About Page</h2>
+                <h2 class="mb-0" style="font-family: 'geneva';"s>About Page</h2>
             </div>
 
         </div>
