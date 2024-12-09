@@ -19,11 +19,11 @@
                                 </a>
                             </div>
 
-                            <div class="mt-2">
+                            {{-- <div class="mt-2">
                                 <a href="#" class="btn custom-btn">
-                                    See post
+                                    Lihat Promo
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="custom-block-info">
@@ -33,7 +33,7 @@
                                     50 Minutes ago
                                 </small>
 
-                                <small>New<span class="badge">post</span></small>
+                                <small>New<span class="badge">Promo!!</span></small>
                             </div>
 
                             <h5 class="mb-2">

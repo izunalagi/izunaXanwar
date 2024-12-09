@@ -30,6 +30,8 @@ use App\Models\Transaction;
 //catalouge
 Route::get('/', [FrontendController::class, 'index'])->name('catalouge.index');
 Route::get('/detail/{id}', [FrontendController::class, 'detail'])->name('catalouge.detail');
+Route::get('/catalouge/about', [FrontendController::class, 'about'])->name('catalouge.about');
+Route::get('/catalouge/contact', [FrontendController::class, 'contact'])->name('catalouge.contact');
 
 Route::get('/login', function () {
     return view('autentikasi.login');

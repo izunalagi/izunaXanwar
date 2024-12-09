@@ -4,7 +4,7 @@
 
             <div class="col-lg-12 col-12">
                 <div class="section-title-wrap mb-5">
-                    <h4 class="section-title"> post</h4>
+                    <h4 class="section-title">Promo</h4>
                 </div>
             </div>
 

@@ -23,6 +23,12 @@ class PostController extends Controller
         return view('post.index', compact('posts'));
     }
 
+    public function about(Request $request)
+    {
+        
+        return view('includes.about');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -30,7 +36,6 @@ class PostController extends Controller
      */
     public function create()
     {
-
         return view('post.create');
     }
 
@@ -43,8 +48,7 @@ class PostController extends Controller
     public function store(PostValidationRequest $request)
     {
         $file = $request->file('photo');
-        $filename = time() . '.' .
-            $file->getClientOriginalExtension();
+        $filename = time() . '.' . $file->getClientOriginalExtension();
 
         $photo_post = $request->file('photo')->storeAs('public/post', $filename);
         $photo_post = str_replace('public/', '', $photo_post);
@@ -84,7 +88,6 @@ class PostController extends Controller
         return view('post.edit', compact('post'));
     }
 
-
     /**
      * Update the specified resource in storage.
      *
@@ -94,11 +97,9 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $file = $request->file('photo');
-        if ($file  != null) {
-            $filename = time() . '.' .
-                $file->getClientOriginalExtension();
+        if ($file != null) {
+            $filename = time() . '.' . $file->getClientOriginalExtension();
 
             $photo_post = $request->file('photo')->storeAs('public/post', $filename);
             $photo_post = str_replace('public/', '', $photo_post);
@@ -109,7 +110,6 @@ class PostController extends Controller
         $posts->title = $request->title;
         $posts->description = $request->description;
         if (isset($photo_post)) {
-
             $posts->photo = $photo_post;
         }
         $posts->save();

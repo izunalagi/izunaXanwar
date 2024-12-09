@@ -24,4 +24,14 @@ class FrontendController extends Controller
         $posts = Post::all();
         return view('layouts.frontend-detail', compact('products', 'posts'));
     }
+
+    public function about(Request $request)
+    {
+        return view('layouts.about');
+    }
+
+    public function contact(Request $request)
+    {
+        return view('layouts.contact');
+    }
 }

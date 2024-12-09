@@ -13,14 +13,13 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-        $perPage = $request->input('per_page', 10); // Default per page 10
+        $perPage = $request->input('per_page', 10); 
 
-        // Gunakan paginate() untuk mendapatkan objek paginasi, bukan get()
         $products = Product::where('name', 'LIKE', "%$search%")
             ->orWhereHas('fkCategory', function ($query) use ($search) {
                 $query->where('name', 'LIKE', "%$search%");
             })
-            ->paginate($perPage); // Mendapatkan hasil dengan pagination
+            ->paginate($perPage); 
         return view('product.index', compact('products'));
     }
 

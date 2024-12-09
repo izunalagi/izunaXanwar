@@ -27,14 +27,11 @@
 
                             <h2 class="mb-2">{{ $products->name }}</h2>
 
-                            <p>What is Content Marketing? If you are wondering what content marketing is all
-                                about, this is the place to start.</p>
+                            <p>Menu ini tersedia anda dapat datang langsung secara offline di cafe Ca' Amaang's.</p>
 
-                            <p>You are not allowed to redistribute this template ZIP file on any other template
-                                collection website. Please contact TemplateMo for more information.</p>
-
-                            <p>Pod Talk HTML CSS Template is made by Bootstrap v5.2.2 framework. You are allowed
-                                to modify and use this template for your business websites.</p>
+                            <p>Jangan lupa untuk melihat-lihat promo yang ada!!</p>
+                            {{-- 
+                            <p>.</p> --}}
 
                             <div class="profile-block profile-detail-block d-flex flex-wrap align-items-center mt-5">
                                 <div class="d-flex mb-3 mb-lg-0 mb-md-0">

@@ -38,7 +38,7 @@
                                 alt="">
                         </a>
 
-                        <a href="#">
+                        <a>
                             <img src="{{ asset('frontend/images/play-store.png') }}" class="img-fluid" alt="">
                         </a>
                     </div>
@@ -68,7 +68,7 @@
         <div class="row align-items-center">
 
             <div class="col-lg-2 col-md-3 col-12">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand">
                     <img src="{{ asset('frontend/images/nang.png') }}" class="logo-image img-fluid"
                         alt="templatemo pod talk">
                 </a>
