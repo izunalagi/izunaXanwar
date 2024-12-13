@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-lg-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('catalouge.index') }}">Catalouge</a>
+                    <a class="nav-link" href="{{ route('catalouge.index') }}">Catalogue</a>
                 </li>
 
                 <li class="nav-item">
