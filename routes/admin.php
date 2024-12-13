@@ -32,7 +32,6 @@ Route::middleware(EnsureAuthAdmin::class, EnsureAuthCustomer::class)->group(func
     Route::get('/dashboard/admin/post', [DashboardController::class, 'post'])->name('dashboard.post');
     Route::get('/dashboard/admin/index', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/dashboard/admin/data', [PostController::class, 'data'])->name('post.data');
-    
 
     //productdetail
     Route::get('/dashboard/product/detail', [DetailProductController::class, 'index'])->name('productdetail.index');
@@ -52,4 +51,12 @@ Route::middleware(EnsureAuthAdmin::class, EnsureAuthCustomer::class)->group(func
     Route::get('/dashboard/user/role/edit/{id}', [UserRoleController::class, 'edit'])->name('userrole.edit');
     Route::put('/dashboard/update/user/role/{id}', [UserRoleController::class, 'update'])->name('userrole.update');
     Route::delete('/dashboard/delete/user/role/{id}', [UserRoleController::class, 'destroy'])->name('userrole.destroy');
+
+    // //user role
+    // Route::get('/dashboard/post', [PostController::class, 'index'])->name('post.index');
+    // Route::get('/dashboard/post/create', [PostController::class, 'create'])->name('post.create');
+    // Route::post('/dashbord/post/store', [PostController::class, 'store'])->name('post.store');
+    // Route::get('/dashboard/post/edit/{id}', [PostController::class, 'edit'])->name('post.edit');
+    // Route::put('/dashboard/update/post/{id}', [PostController::class, 'update'])->name('post.update');
+    // Route::delete('/dashboard/delete/post/{id}', [PostController::class, 'destroy'])->name('post.destroy');
 });

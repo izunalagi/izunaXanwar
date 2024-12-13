@@ -23,11 +23,7 @@ class PostController extends Controller
         return view('post.index', compact('posts'));
     }
 
-    public function about(Request $request)
-    {
-        
-        return view('includes.about');
-    }
+    
 
     /**
      * Show the form for creating a new resource.
