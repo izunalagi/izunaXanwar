@@ -17,7 +17,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-12 mb-4 mb-md-0 mb-lg-0">
+            <div class="col-lg-3 col-md-6 col-12 mb-4 mb-md-0 mb-lg-0" style="margin-left: auto; text-align: right;">
                 <h6 class="site-footer-title mb-3">Contact</h6>
 
                 <p class="mb-2"><strong class="d-inline me-2">Phone:</strong>0812-1651-9331</p>
