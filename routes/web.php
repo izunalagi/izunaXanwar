@@ -24,10 +24,6 @@ use App\Models\Transaction;
 |
 */
 
-// Route::get('/', function () {
-//     return view('layouts.frontend');
-// });
-//catalouge
 Route::get('/', [FrontendController::class, 'index'])->name('catalouge.index');
 Route::get('/detail/{id}', [FrontendController::class, 'detail'])->name('catalouge.detail');
 Route::get('/catalouge/about', [FrontendController::class, 'about'])->name('catalouge.about');
