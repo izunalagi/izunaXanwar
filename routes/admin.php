@@ -19,7 +19,7 @@ Route::middleware(EnsureAuthAdmin::class, EnsureAuthCustomer::class)->group(func
     Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
 
-    // //post
+    //promo
     Route::get('/home/post', [PostController::class, 'index'])->name('post.index');
     Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('/post/store', [PostController::class, 'store'])->name('post.store');
@@ -30,6 +30,8 @@ Route::middleware(EnsureAuthAdmin::class, EnsureAuthCustomer::class)->group(func
     //dashboard
     Route::get('/dashboard/admin', [DashboardController::class, 'dashboard'])->name('dashboard.admin');
     Route::get('/dashboard/admin/post', [DashboardController::class, 'post'])->name('dashboard.post');
+    //Delete user
+    Route::delete('/dashboard/admin/post/delete/user/{id}', [DashboardController::class, 'destroy'])->name('dashboard.destroy');
     Route::get('/dashboard/admin/index', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/dashboard/admin/data', [PostController::class, 'data'])->name('post.data');
 
@@ -51,12 +53,4 @@ Route::middleware(EnsureAuthAdmin::class, EnsureAuthCustomer::class)->group(func
     Route::get('/dashboard/user/role/edit/{id}', [UserRoleController::class, 'edit'])->name('userrole.edit');
     Route::put('/dashboard/update/user/role/{id}', [UserRoleController::class, 'update'])->name('userrole.update');
     Route::delete('/dashboard/delete/user/role/{id}', [UserRoleController::class, 'destroy'])->name('userrole.destroy');
-
-    // //user role
-    // Route::get('/dashboard/post', [PostController::class, 'index'])->name('post.index');
-    // Route::get('/dashboard/post/create', [PostController::class, 'create'])->name('post.create');
-    // Route::post('/dashbord/post/store', [PostController::class, 'store'])->name('post.store');
-    // Route::get('/dashboard/post/edit/{id}', [PostController::class, 'edit'])->name('post.edit');
-    // Route::put('/dashboard/update/post/{id}', [PostController::class, 'update'])->name('post.update');
-    // Route::delete('/dashboard/delete/post/{id}', [PostController::class, 'destroy'])->name('post.destroy');
 });

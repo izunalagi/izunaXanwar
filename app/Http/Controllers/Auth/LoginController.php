@@ -46,7 +46,7 @@ class LoginController extends Controller
         if ($user->UserRole->role->name == 'admin' || $user->UserRole->role->name == 'customer') {
             return redirect('/admin/dashboard/admin');
         } else {
-            return redirect('/catalouge');
+            return redirect('/');
         }
     }
 }

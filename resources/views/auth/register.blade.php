@@ -75,7 +75,8 @@
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary mt-3">
+                                <!-- Trigger Modal -->
+                                <button type="button" id="openTokenModal" class="btn btn-primary mt-3">
                                     {{ __('Register') }}
                                 </button>
                                 <div class="mt-3">
@@ -90,9 +91,59 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+    <!-- Modal -->
+    <div class="modal fade" id="tokenModal" tabindex="-1" aria-labelledby="tokenModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tokenModalLabel">Inputkan Token</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="registrationToken" class="form-control" placeholder="Enter Token">
+                    <div id="tokenError" class="text-danger mt-2" style="display: none;">Token Anda Tidak Valid!<div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" id="validateTokenBtn" class="btn btn-primary">Validasi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const validToken = "izunaaja";
+                const openTokenModal = document.getElementById('openTokenModal');
+                const validateTokenBtn = document.getElementById('validateTokenBtn');
+                const tokenModal = new bootstrap.Modal(document.getElementById('tokenModal'));
+                const registrationToken = document.getElementById('registrationToken');
+                const tokenError = document.getElementById('tokenError');
+                const registerForm = document.querySelector('form');
+
+                // Open modal when clicking the register button
+                openTokenModal.addEventListener('click', function() {
+                    tokenModal.show();
+                });
+
+                // Validate token
+                validateTokenBtn.addEventListener('click', function() {
+                    if (registrationToken.value === validToken) {
+                        tokenError.style.display = 'none';
+                        tokenModal.hide();
+                        registerForm.submit();
+                    } else {
+                        tokenError.style.display = 'block';
+                    }
+                });
+            });
+        </script>
 </body>
 
 </html>
