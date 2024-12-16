@@ -12,11 +12,12 @@
                 @foreach ($products as $item)
                     <div class="item">
                         <div class="custom-block custom-block-overlay">
-                            <a href="{{ route('catalouge.detail', $item->id) }}" class="custom-block-image-wrap"
+                            <img src="{{ asset('storage/' . $item->photo) }}" class="custom-block-image img-fluid"
+                                alt="">
+                            {{-- <a href="{{ route('catalouge.detail', $item->id) }}" class="custom-block-image-wrap"
                                 style="font-family:'Helvetica'">
-                                <img src="{{ asset('storage/' . $item->photo) }}" class="custom-block-image img-fluid"
-                                    alt="">
-                            </a>
+
+                            </a> --}}
 
                             <div class="custom-block-info custom-block-overlay-info">
                                 <h5 class="mb-1">
