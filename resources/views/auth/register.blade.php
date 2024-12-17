@@ -127,12 +127,10 @@
                 const tokenError = document.getElementById('tokenError');
                 const registerForm = document.querySelector('form');
 
-                // Open modal when clicking the register button
                 openTokenModal.addEventListener('click', function() {
                     tokenModal.show();
                 });
 
-                // Validate token
                 validateTokenBtn.addEventListener('click', function() {
                     if (registrationToken.value === validToken) {
                         tokenError.style.display = 'none';

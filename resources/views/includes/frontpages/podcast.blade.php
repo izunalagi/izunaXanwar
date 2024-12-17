@@ -90,10 +90,8 @@
     .scroll-snap-item {
         scroll-snap-align: center;
         flex: 0 0 calc(50% - 10px);
-        /* Tampilkan 2 card sekaligus */
     }
 
-    /* Responsive: 1 card di layar kecil */
     @media (max-width: 768px) {
         .scroll-snap-item {
             flex: 0 0 100%;

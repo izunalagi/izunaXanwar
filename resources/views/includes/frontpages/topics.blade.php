@@ -14,23 +14,13 @@
                         <div class="custom-block custom-block-overlay">
                             <img src="{{ asset('storage/' . $item->photo) }}" class="custom-block-image img-fluid"
                                 alt="">
-                            {{-- <a href="{{ route('catalouge.detail', $item->id) }}" class="custom-block-image-wrap"
-                                style="font-family:'Helvetica'">
-
-                            </a> --}}
 
                             <div class="custom-block-info custom-block-overlay-info">
-                                <h5 class="mb-1">
-                                    <a href="{{ route('catalouge.detail', $item->id) }}"
-                                        style="font-family:'Franklin Gothic Medium'">
-                                        {{ $item->name }}
-                                    </a>
-                                </h5>
+
                                 <p class="badge mb-0">
                                     {{ $item->fkProductDetail ? $item->fkProductDetail->unit : 'No Unit Available' }}
                                 </p>
 
-                                {{-- <p class="badge mb-0">{{ $item->fkProductDetail->unit }}</p> --}}
                             </div>
                         </div>
                     </div>

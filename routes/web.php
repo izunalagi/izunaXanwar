@@ -25,13 +25,16 @@ use App\Models\Transaction;
 */
 
 Route::get('/', [FrontendController::class, 'index'])->name('catalouge.index');
-Route::get('/detail/{id}', [FrontendController::class, 'detail'])->name('catalouge.detail');
+// Route::get('/detail/{id}', [FrontendController::class, 'detail'])->name('catalouge.detail');
 Route::get('/catalouge/about', [FrontendController::class, 'about'])->name('catalouge.about');
 Route::get('/catalouge/contact', [FrontendController::class, 'contact'])->name('catalouge.contact');
 
 Route::get('/login', function () {
     return view('autentikasi.login');
 });
+
+Auth::routes();
+
 
 Route::middleware(EnsureAuthCustomer::class)->group(function () {
     // buyer
@@ -81,5 +84,3 @@ Route::middleware(EnsureAuthCustomer::class)->group(function () {
     Route::put('/voucher/{id}', [VoucherController::class, 'update'])->name('voucher.update');
     Route::delete('/voucher/{id}', [VoucherController::class, 'destroy'])->name('voucher.destroy');
 });
-
-Auth::routes();

@@ -25,27 +25,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <style>
-        /* Menetapkan navbar tetap di atas */
         .main-header.navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1050;
-            /* pastikan lebih tinggi dari elemen lainnya */
         }
 
-        /* Pastikan konten tidak tertutup oleh navbar */
         .content-wrapper {
             margin-top: 60px;
-            /* Sesuaikan dengan tinggi navbar */
         }
 
-        /* Pastikan elemen fullscreen tetap terlihat */
         .navbar-nav.ml-auto .nav-item .nav-link {
             position: relative;
             z-index: 1060;
-            /* Memastikan tombol fullscreen ada di atas */
         }
     </style>
 </head>
@@ -57,10 +51,6 @@
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
-                {{-- <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
-                </li> --}}
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ route('catalouge.index') }}" class="nav-link"> <i class="fas fa-home"> go to
                             catalouge</i> </a>
@@ -136,8 +126,6 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('/') }}dist/js/adminlte.min.js"></script>
     @stack('js')
-    <!-- AdminLTE for demo purposes -->
-    {{-- <script src="{{ asset('/') }}dist/js/demo.js"></script> --}}
 </body>
 
 </html>
