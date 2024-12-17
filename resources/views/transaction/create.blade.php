@@ -32,9 +32,10 @@
                             </div>
                             <div class="form-floating mb-4">
                                 <label for="date">date :</label>
-
                                 <input type="date" name="date" placeholder="Date" class="form-control">
-
+                                @error('date')
+                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

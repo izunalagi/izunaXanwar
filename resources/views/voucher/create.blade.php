@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card-head">Tambah Voucher</div>
+                <div class="card-head"></div>
                 <div class="card">
                     <div class="card-body">
                         <div class="row d-flex flex-row-reverse">
@@ -35,14 +35,23 @@
                                 <div class="form-floating mb-3">
                                     <label for="name">name :</label>
                                     <input type="text" name="name" placeholder="Name" class="form-control">
+                                    @error('name')
+                                        <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-floating mb-3">
                                     <label for="diskon">diskon :</label>
                                     <input type="text" name="diskon" placeholder="Diskon" class="form-control">
+                                    @error('diskon')
+                                        <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-floating mb-4">
                                     <label for="stocks">stocks :</label>
                                     <input type="text" name="stocks" placeholder="Stocks" class="form-control">
+                                    @error('stocks')
+                                        <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="row justify-content-center">
                                     <button type="submit" class="btn btn-primary col-md-4">

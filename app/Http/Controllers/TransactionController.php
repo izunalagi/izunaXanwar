@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TransactionValidationRequest;
 use App\Models\Buyer;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
@@ -22,15 +23,26 @@ class TransactionController extends Controller
 
     public function store(Request $request)
     {
-        
+        $request->validate(
+            [
+                'date' => 'required|date',
+                'status' => 'nullable|date',
+            ],
+            [
+                'date.required' => 'Tanggal tidak boleh kosong.',
+                'date.date' => 'Format tanggal tidak valid.',
+            ],
+        );
+
         $transactions = Transaction::create([
             'buyer_id' => $request->buyer_id,
             'date' => $request->date,
         ]);
 
-    $id = $transactions->id; // Example if using a model
-    return redirect()->route('checkout.index', ['id' => $id])->with('success', 'Data Berhasil Diubah');
-
+        $id = $transactions->id; // Example if using a model
+        return redirect()
+            ->route('checkout.index', ['id' => $id])
+            ->with('success', 'Data Berhasil Diubah');
     }
 
     public function edit($id)

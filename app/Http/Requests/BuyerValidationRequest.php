@@ -34,7 +34,7 @@ class BuyerValidationRequest extends FormRequest
      public function messages()
      {
      return [
-     'name.required' => 'Nama produk harus diisi',
+     'name.required' => 'Nama harus diisi',
      'name.unique' => 'Nama produk tidak boleh sama',
      'name.max' => 'Nama produk maksimal 255 karakter',
      'age.required' => 'age harus diisi',
